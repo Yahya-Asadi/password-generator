@@ -1,0 +1,121 @@
+body {
+  background-color: #1c1c1c;
+}
+
+h1 {
+  font-family: "Karla", sans-serif;
+  font-size: 40px;
+  margin-top: 115px;
+  margin-left: 52px;
+  margin-bottom: 0px;
+  color: #ffffff;
+}
+
+span {
+  color: #4adf86;
+}
+
+h2 {
+  color: #d5d4d8;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  margin-left: 52px;
+  margin-top: 10px;
+}
+
+button {
+  font-size: 16px;
+  padding: 9px 15px;
+  margin-left: 52px;
+  color: #ffffff;
+  background-color: #10b981;
+  font-family: "Inter", sans-serif;
+  border: none;
+  border-radius: 6px;
+}
+
+button:hover {
+  background-color: #047857;
+}
+
+button:active {
+  background-color: #064e3b;
+}
+
+.container {
+  max-width: 550px;
+  margin: 64px auto;
+  background-color: #1f2937;
+}
+
+.line {
+  border: 0.5px solid #2f3e53;
+  width: 446px;
+  margin: 35px auto;
+  padding: 0px;
+}
+
+.columns {
+  display: flex;
+}
+
+.generated-password {
+  margin: 0 auto;
+  background-color: #273549;
+  color: #55f991;
+  font-family: "Inter", sans-serif;
+  width: 400px;
+  height: 40px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 70px;
+  text-align: center;
+  justify-content: center;
+}
+
+.trademark {
+  text-align: center;
+  padding-bottom: 20px;
+  color: #9ca3af;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+}
+
+.input {
+  color: white;
+  font-family: "Inter", sans-serif;
+  margin-left: 52px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+#length {
+  width: 60px;
+  border: none;
+  border-radius: 6px;
+  background-color: #9ca3af;
+  font-size: 16px;
+  text-align: center;
+  color: 111827;
+}
+
+#length.hover {
+  border: none;
+}
+
+#length.active {
+  border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}

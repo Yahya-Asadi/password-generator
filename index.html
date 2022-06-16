@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Generate a<br /><span>random password</span></h1>
+      </header>
+      <main>
+        <div>
+          <h2>Never use an insecure password again</h2>
+        </div>
+        <div class="input">
+          <label for="name">Length</label>
+          <input id="length" type="number" max="120" size="5" />
+          <input class="checkbox" type="checkbox" id="symbols-el" checked />
+          <label for="scales">Symbols</label>
+          <input class="checkbox" type="checkbox" id="numbers-el" checked />
+          <label for="scales">Numbers</label>
+        </div>
+        <button onclick="start()">Generate password</button>
+        <div class="line"></div>
+        <div class="generated-password">
+          <span class="vertical-center">
+            <p id="first-password"></p>
+          </span>
+        </div>
+        <div class="generated-password">
+          <span class="vertical-center">
+            <p id="second-password"></p>
+          </span>
+        </div>
+      </main>
+      <footer>
+        <p class="trademark">(c) Yahya Asadi Sheikhi</p>
+      </footer>
+    </div>
+  </body>
+</html>
+<script src="index.js"></script>
