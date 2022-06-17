@@ -7,11 +7,11 @@ const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","
 const alphaSymbols = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 "/"];
 
-let firstPassword = document.getElementById("first-password")
-let secondPassword = document.getElementById("second-password")
-numbersEl = document.getElementById("numbers-el")
-symbolsEl = document.getElementById("symbols-el")
-let length = document.getElementById("length")
+const firstPassword = document.getElementById("first-password")
+const secondPassword = document.getElementById("second-password")
+const numbersEl = document.getElementById("numbers-el")
+const symbolsEl = document.getElementById("symbols-el")
+const length = document.getElementById("length")
 let indexLength = 0
 
 function start(){
@@ -90,4 +90,11 @@ function generatePasswordAlphaSymbols() {
 		password += alphaSymbols[Math.floor(Math.random() * alphaSymbols.length)]
 	}
 	return password
+}
+
+function copyOne(){
+	navigator.clipboard.writeText(firstPassword.textContent);
+}
+function copyTwo(){
+	navigator.clipboard.writeText(secondPassword.textContent);
 }

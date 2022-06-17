@@ -70,9 +70,16 @@ button:active {
   margin-bottom: 20px;
   display: inline-flex;
   align-items: center;
-  margin-left: 70px;
+  margin-left: 50px;
   text-align: center;
   justify-content: center;
+  margin-right: 0px;
+  padding-right: 0px;
+}
+.copy {
+  margin: 0px;
+  margin-left: 10px;
+  margin-right: 80px;
 }
 
 .trademark {

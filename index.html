@@ -30,15 +30,25 @@
         </div>
         <button onclick="start()">Generate password</button>
         <div class="line"></div>
-        <div class="generated-password">
-          <span class="vertical-center">
-            <p id="first-password"></p>
-          </span>
+        <div class="columns">
+          <div class="generated-password">
+            <span class="vertical-center">
+              <p id="first-password"></p>
+            </span>
+          </div>
+          <div>
+            <button class="copy" id="copy-one" onclick="copyOne()">copy</button>
+          </div>
         </div>
-        <div class="generated-password">
-          <span class="vertical-center">
-            <p id="second-password"></p>
-          </span>
+        <div class="columns">
+          <div class="generated-password">
+            <span class="vertical-center">
+              <p id="second-password"></p>
+            </span>
+          </div>
+          <div>
+            <button class="copy" id="copy-two" onclick="copyTwo()">copy</button>
+          </div>
         </div>
       </main>
       <footer>
