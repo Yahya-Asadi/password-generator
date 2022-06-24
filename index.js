@@ -12,85 +12,93 @@ const secondPassword = document.getElementById("second-password")
 const numbersEl = document.getElementById("numbers-el")
 const symbolsEl = document.getElementById("symbols-el")
 const length = document.getElementById("length")
+const notificationEl = document.getElementById("notification-el")
+
 let indexLength = 0
 
-function start(){
-	if (numbersEl.checked && symbolsEl.checked === false) {
-		firstPassword.textContent = generatePasswordAlphanumeral()
-		secondPassword.textContent = generatePasswordAlphanumeral()
-	}
-	else if (numbersEl.checked && symbolsEl.checked) {
-		firstPassword.textContent = generatePasswordAll()
-		secondPassword.textContent = generatePasswordAll()
-	}
-	else if (symbolsEl.checked && numbersEl.checked === false) {
-		firstPassword.textContent = generatePasswordAlphaSymbols()
-		secondPassword.textContent = generatePasswordAlphaSymbols()
-	}else {
-		firstPassword.textContent = generatePasswordAlphabet()
-		secondPassword.textContent = generatePasswordAlphabet()
-	}
-}
 
-function generatePasswordAll() {
-	if (length.value === "") {
-		indexLength = 15
-	}
-	else {
-		indexLength = length.value
+	function start(){
+		console.log(length.value)
+		if (length.value >= 12 && length.value <= 35){
+			if (numbersEl.checked && symbolsEl.checked === false) {
+				firstPassword.textContent = generatePasswordAlphanumeral()
+				secondPassword.textContent = generatePasswordAlphanumeral()
+			}
+			else if (numbersEl.checked && symbolsEl.checked) {
+				firstPassword.textContent = generatePasswordAll()
+				secondPassword.textContent = generatePasswordAll()
+			}
+			else if (symbolsEl.checked && numbersEl.checked === false) {
+				firstPassword.textContent = generatePasswordAlphaSymbols()
+				secondPassword.textContent = generatePasswordAlphaSymbols()
+			}else {
+				firstPassword.textContent = generatePasswordAlphabet()
+				secondPassword.textContent = generatePasswordAlphabet()
+			}
+		} else {
+			notificationEl.innerHTML=`Length can only be between <strong>12</strong> to <strong>35</strong>`
+		}
 	}
 
-	let password = ""
-	for (let i = 0; i < indexLength; i++){
-		password += characters[Math.floor(Math.random() * characters.length)]
-	}
-	return password
-}
+	function generatePasswordAll() {
+		if (length.value === "") {
+			indexLength = 15
+		}
+		else {
+			indexLength = length.value
+		}
 
-function generatePasswordAlphanumeral() {
-	if (length.value === "") {
-		indexLength = 15
-	}
-	else {
-		indexLength = length.value
-	}
-
-	let password = ""
-	for (let i = 0; i < indexLength; i++){
-		password += alphanumeral[Math.floor(Math.random() * alphanumeral.length)]
-	}
-	return password
-}
-
-function generatePasswordAlphabet() {
-	if (length.value === "") {
-		indexLength = 15
-	}
-	else {
-		indexLength = length.value
+		let password = ""
+		for (let i = 0; i < indexLength; i++){
+			password += characters[Math.floor(Math.random() * characters.length)]
+		}
+		return password
 	}
 
-	let password = ""
-	for (let i = 0; i < indexLength; i++){
-		password += alphabet[Math.floor(Math.random() * alphabet.length)]
-	}
-	return password
-}
+	function generatePasswordAlphanumeral() {
+		if (length.value === "") {
+			indexLength = 15
+		}
+		else {
+			indexLength = length.value
+		}
 
-function generatePasswordAlphaSymbols() {
-	if (length.value === "") {
-		indexLength = 15
-	}
-	else {
-		indexLength = length.value
+		let password = ""
+		for (let i = 0; i < indexLength; i++){
+			password += alphanumeral[Math.floor(Math.random() * alphanumeral.length)]
+		}
+		return password
 	}
 
-	let password = ""
-	for (let i = 0; i < indexLength; i++){
-		password += alphaSymbols[Math.floor(Math.random() * alphaSymbols.length)]
+	function generatePasswordAlphabet() {
+		if (length.value === "") {
+			indexLength = 15
+		}
+		else {
+			indexLength = length.value
+		}
+
+		let password = ""
+		for (let i = 0; i < indexLength; i++){
+			password += alphabet[Math.floor(Math.random() * alphabet.length)]
+		}
+		return password
 	}
-	return password
-}
+
+	function generatePasswordAlphaSymbols() {
+		if (length.value === "") {
+			indexLength = 15
+		}
+		else {
+			indexLength = length.value
+		}
+
+		let password = ""
+		for (let i = 0; i < indexLength; i++){
+			password += alphaSymbols[Math.floor(Math.random() * alphaSymbols.length)]
+		}
+		return password
+	}
 
 function copyOne(){
 	navigator.clipboard.writeText(firstPassword.textContent);

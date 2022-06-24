@@ -51,6 +51,7 @@ button:active {
   border: 0.5px solid #2f3e53;
   width: 446px;
   margin: 35px auto;
+  margin-top: 10px;
   padding: 0px;
 }
 
@@ -119,9 +120,10 @@ button:active {
 }
 
 #notification-el {
-  text-align: center;
+  /* text-align: center; */
   color: #e11d48;
-  margin-bottom: 40px;
+  margin-left: 52px;
+  margin-top: 30px;
   font-size: 16px;
 }
 
