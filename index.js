@@ -18,8 +18,8 @@ let indexLength = 0
 
 
 	function start(){
-		console.log(length.value)
-		if (length.value >= 12 && length.value <= 35){
+		if (length.value >= 12 && length.value <= 30){
+			notificationEl.innerHTML=""
 			if (numbersEl.checked && symbolsEl.checked === false) {
 				firstPassword.textContent = generatePasswordAlphanumeral()
 				secondPassword.textContent = generatePasswordAlphanumeral()
@@ -36,7 +36,7 @@ let indexLength = 0
 				secondPassword.textContent = generatePasswordAlphabet()
 			}
 		} else {
-			notificationEl.innerHTML=`Length can only be between <strong>12</strong> to <strong>35</strong>`
+			notificationEl.innerHTML=`Length can only be between <strong>12</strong> to <strong>30</strong>`
 		}
 	}
 
