@@ -14,11 +14,10 @@ const symbolsEl = document.getElementById("symbols-el")
 const length = document.getElementById("length")
 const notificationEl = document.getElementById("notification-el")
 
-let indexLength = 0
 
 
 	function start(){
-		if (length.value >= 12 && length.value <= 30){
+		if ((length.value >= 12 && length.value <= 30) || length.value === ""){
 			notificationEl.innerHTML=""
 			if (numbersEl.checked && symbolsEl.checked === false) {
 				firstPassword.textContent = generatePasswordAlphanumeral()
