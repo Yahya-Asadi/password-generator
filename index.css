@@ -118,6 +118,18 @@ button:active {
   border: none;
 }
 
+#notification-el {
+  text-align: center;
+  color: #e11d48;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+#notification-el:empty {
+  margin: 0;
+  padding: 0;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
