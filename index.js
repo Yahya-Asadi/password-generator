@@ -36,6 +36,8 @@ const notificationEl = document.getElementById("notification-el")
 			}
 		} else {
 			notificationEl.innerHTML=`Length can only be between <strong>12</strong> to <strong>30</strong>`
+			firstPassword.textContent = ""
+			secondPassword.textContent = ""
 		}
 	}
 
