@@ -1,11 +1,5 @@
 const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 "/"];
-const alphanumeral = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-
-const alphaSymbols = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
-"/"];
 
 const firstPassword = document.getElementById("first-password")
 const secondPassword = document.getElementById("second-password")
@@ -36,19 +30,19 @@ generatePasswordEl.addEventListener("click", function(){
 	if ((length.value >= 12 && length.value <= 30) || length.value === ""){
 		notificationEl.innerHTML=""
 		if (numbersEl.checked && symbolsEl.checked === false) {
-			firstPassword.textContent = generatePassword(alphanumeral)
-			secondPassword.textContent = generatePassword(alphanumeral)
+			firstPassword.textContent = generatePassword(characters.slice(0, 62))
+			secondPassword.textContent = generatePassword(characters.slice(0, 62))
 		}
 		else if (numbersEl.checked && symbolsEl.checked) {
 			firstPassword.textContent = generatePassword(characters)
 			secondPassword.textContent = generatePassword(characters)
 		}
 		else if (symbolsEl.checked && numbersEl.checked === false) {
-			firstPassword.textContent = generatePassword(alphaSymbols)
-			secondPassword.textContent = generatePassword(alphaSymbols)
+			firstPassword.textContent = generatePassword(characters.slice(0, 81))
+			secondPassword.textContent = generatePassword(characters.slice(0, 81))
 		}else {
-			firstPassword.textContent = generatePassword(alphabet)
-			secondPassword.textContent = generatePassword(alphabet)
+			firstPassword.textContent = generatePassword(characters.slice(0, 52))
+			secondPassword.textContent = generatePassword(characters.slice(0, 52))
 		}
 	} else {
 		notificationEl.innerHTML=`Length can only be between <strong>12</strong> to <strong>30</strong>`
