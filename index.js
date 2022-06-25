@@ -17,7 +17,22 @@ const notificationEl = document.getElementById("notification-el")
 const copyOne = document.getElementById("copy-one")
 const copyTwo = document.getElementById("copy-two")
 
-function start(){
+function generatePassword(charSet){
+	if (length.value === "") {
+		indexLength = 15
+	}
+	else {
+		indexLength = length.value
+	}
+
+	let password = ""
+	for (let i = 0; i < indexLength; i++){
+		password += charSet[Math.floor(Math.random() * charSet.length)]
+	}
+	return password
+}
+
+generatePasswordEl.addEventListener("click", function(){
 	if ((length.value >= 12 && length.value <= 30) || length.value === ""){
 		notificationEl.innerHTML=""
 		if (numbersEl.checked && symbolsEl.checked === false) {
@@ -40,27 +55,7 @@ function start(){
 		firstPassword.textContent = ""
 		secondPassword.textContent = ""
 	}
-}
-
-generatePasswordEl.addEventListener("click", function(){
-	start()
 })
-
-function generatePassword(charSet){
-	if (length.value === "") {
-		indexLength = 15
-	}
-	else {
-		indexLength = length.value
-	}
-
-	let password = ""
-	for (let i = 0; i < indexLength; i++){
-		password += charSet[Math.floor(Math.random() * charSet.length)]
-	}
-	return password
-}
-
 
 copyOne.addEventListener("click", function(){
 	navigator.clipboard.writeText(firstPassword.textContent);
