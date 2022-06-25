@@ -12,98 +12,59 @@ const secondPassword = document.getElementById("second-password")
 const numbersEl = document.getElementById("numbers-el")
 const symbolsEl = document.getElementById("symbols-el")
 const length = document.getElementById("length")
+const generatePasswordEl = document.getElementById("generate-password-el")
 const notificationEl = document.getElementById("notification-el")
+const copyOne = document.getElementById("copy-one")
+const copyTwo = document.getElementById("copy-two")
 
-
-
-	function start(){
-		if ((length.value >= 12 && length.value <= 30) || length.value === ""){
-			notificationEl.innerHTML=""
-			if (numbersEl.checked && symbolsEl.checked === false) {
-				firstPassword.textContent = generatePasswordAlphanumeral()
-				secondPassword.textContent = generatePasswordAlphanumeral()
-			}
-			else if (numbersEl.checked && symbolsEl.checked) {
-				firstPassword.textContent = generatePasswordAll()
-				secondPassword.textContent = generatePasswordAll()
-			}
-			else if (symbolsEl.checked && numbersEl.checked === false) {
-				firstPassword.textContent = generatePasswordAlphaSymbols()
-				secondPassword.textContent = generatePasswordAlphaSymbols()
-			}else {
-				firstPassword.textContent = generatePasswordAlphabet()
-				secondPassword.textContent = generatePasswordAlphabet()
-			}
-		} else {
-			notificationEl.innerHTML=`Length can only be between <strong>12</strong> to <strong>30</strong>`
-			firstPassword.textContent = ""
-			secondPassword.textContent = ""
+function start(){
+	if ((length.value >= 12 && length.value <= 30) || length.value === ""){
+		notificationEl.innerHTML=""
+		if (numbersEl.checked && symbolsEl.checked === false) {
+			firstPassword.textContent = generatePassword(alphanumeral)
+			secondPassword.textContent = generatePassword(alphanumeral)
 		}
+		else if (numbersEl.checked && symbolsEl.checked) {
+			firstPassword.textContent = generatePassword(characters)
+			secondPassword.textContent = generatePassword(characters)
+		}
+		else if (symbolsEl.checked && numbersEl.checked === false) {
+			firstPassword.textContent = generatePassword(alphaSymbols)
+			secondPassword.textContent = generatePassword(alphaSymbols)
+		}else {
+			firstPassword.textContent = generatePassword(alphabet)
+			secondPassword.textContent = generatePassword(alphabet)
+		}
+	} else {
+		notificationEl.innerHTML=`Length can only be between <strong>12</strong> to <strong>30</strong>`
+		firstPassword.textContent = ""
+		secondPassword.textContent = ""
+	}
+}
+
+generatePasswordEl.addEventListener("click", function(){
+	start()
+})
+
+function generatePassword(charSet){
+	if (length.value === "") {
+		indexLength = 15
+	}
+	else {
+		indexLength = length.value
 	}
 
-	function generatePasswordAll() {
-		if (length.value === "") {
-			indexLength = 15
-		}
-		else {
-			indexLength = length.value
-		}
-
-		let password = ""
-		for (let i = 0; i < indexLength; i++){
-			password += characters[Math.floor(Math.random() * characters.length)]
-		}
-		return password
+	let password = ""
+	for (let i = 0; i < indexLength; i++){
+		password += charSet[Math.floor(Math.random() * charSet.length)]
 	}
+	return password
+}
 
-	function generatePasswordAlphanumeral() {
-		if (length.value === "") {
-			indexLength = 15
-		}
-		else {
-			indexLength = length.value
-		}
 
-		let password = ""
-		for (let i = 0; i < indexLength; i++){
-			password += alphanumeral[Math.floor(Math.random() * alphanumeral.length)]
-		}
-		return password
-	}
-
-	function generatePasswordAlphabet() {
-		if (length.value === "") {
-			indexLength = 15
-		}
-		else {
-			indexLength = length.value
-		}
-
-		let password = ""
-		for (let i = 0; i < indexLength; i++){
-			password += alphabet[Math.floor(Math.random() * alphabet.length)]
-		}
-		return password
-	}
-
-	function generatePasswordAlphaSymbols() {
-		if (length.value === "") {
-			indexLength = 15
-		}
-		else {
-			indexLength = length.value
-		}
-
-		let password = ""
-		for (let i = 0; i < indexLength; i++){
-			password += alphaSymbols[Math.floor(Math.random() * alphaSymbols.length)]
-		}
-		return password
-	}
-
-function copyOne(){
+copyOne.addEventListener("click", function(){
 	navigator.clipboard.writeText(firstPassword.textContent);
-}
-function copyTwo(){
+})
+copyTwo.addEventListener("click", function(){
 	navigator.clipboard.writeText(secondPassword.textContent);
-}
+})
